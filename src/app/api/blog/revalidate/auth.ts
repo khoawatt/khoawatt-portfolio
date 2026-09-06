@@ -13,7 +13,9 @@ export function isRevalidateAuthorized(
 ): boolean {
   if (!expectedSecret) return false;
   if (!authHeader) return false;
-  const [scheme, token] = authHeader.trim().split(" ");
+  const parts = authHeader.trim().split(" ");
+  if (parts.length !== 2) return false;
+  const [scheme, token] = parts;
   if (!scheme || !token || scheme.toLowerCase() !== "bearer") return false;
   const a = createHash("sha256").update(token, "utf8").digest();
   const b = createHash("sha256").update(expectedSecret, "utf8").digest();

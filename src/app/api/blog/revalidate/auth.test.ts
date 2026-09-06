@@ -22,6 +22,11 @@ test("revalidate auth: missing or malformed header is rejected", () => {
   assert.equal(isRevalidateAuthorized("Bearer ", SECRET), false);
 });
 
+test("revalidate auth: trailing garbage after the token is rejected", () => {
+  assert.equal(isRevalidateAuthorized(`Bearer ${SECRET} extra`, SECRET), false);
+  assert.equal(isRevalidateAuthorized(`Bearer  ${SECRET}`, SECRET), false);
+});
+
 test("revalidate auth: unconfigured secret never authorizes (fail-closed)", () => {
   assert.equal(isRevalidateAuthorized(`Bearer ${SECRET}`, undefined), false);
   assert.equal(isRevalidateAuthorized(`Bearer ${SECRET}`, ""), false);
