@@ -13,6 +13,7 @@ const messages = {
   },
   header: {
     primaryNavigation: "Các phần portfolio",
+    skipToContent: "Bỏ qua tới nội dung chính",
     homeAction: "Đi đến Trang chủ",
     openMenu: "Mở trình đơn điều hướng",
     closeMenu: "Đóng trình đơn điều hướng",

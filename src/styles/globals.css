@@ -238,6 +238,23 @@ video {
   outline-offset: 3px;
 }
 
+/* Skip link: offscreen until keyboard focus, above the sticky header. */
+.skip-link {
+  position: fixed;
+  inset-block-start: var(--space-2);
+  inset-inline-start: var(--space-2);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-elevated);
+  color: var(--color-text);
+  transform: translateY(-300%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
 .page-shell {
   position: relative;
   isolation: isolate;
@@ -1459,7 +1476,9 @@ video {
 .resume-panel__toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* Mobile: the counter is the toolbar's only child — center it so it groups
+     with the centered entry controls above instead of hugging the edge. */
+  justify-content: center;
   gap: var(--space-4);
 }
 
@@ -2999,6 +3018,10 @@ video {
   .resume-category__item {
     width: 100%;
     white-space: normal;
+  }
+
+  .resume-panel__toolbar {
+    justify-content: space-between;
   }
 
   .home-hero__layout {

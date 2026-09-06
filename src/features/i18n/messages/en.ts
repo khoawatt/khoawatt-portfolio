@@ -13,6 +13,7 @@ const messages = {
   },
   header: {
     primaryNavigation: "Portfolio sections",
+    skipToContent: "Skip to main content",
     homeAction: "Go to Home",
     openMenu: "Open navigation menu",
     closeMenu: "Close navigation menu",

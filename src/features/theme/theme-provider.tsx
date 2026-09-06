@@ -16,6 +16,7 @@ import {
   type Theme,
   themeStorageKey,
 } from "@/features/theme/config";
+import { syncThemeColorMeta } from "@/features/theme/theme-color";
 
 interface ThemeContextValue {
   theme: Theme | null;
@@ -33,6 +34,7 @@ function getDocumentTheme(): Theme {
 
 function applyTheme(theme: Theme) {
   document.documentElement.dataset.theme = theme;
+  syncThemeColorMeta();
   window.dispatchEvent(new Event(themeChangeEvent));
 }
 
@@ -76,6 +78,8 @@ export function ThemeProvider({ children }: Readonly<ThemeProviderProps>) {
 
     if (getDocumentTheme() !== resolvedTheme) {
       applyTheme(resolvedTheme);
+    } else {
+      syncThemeColorMeta();
     }
   }, [pathname]);
 

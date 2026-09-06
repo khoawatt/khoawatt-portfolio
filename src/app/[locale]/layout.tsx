@@ -65,6 +65,9 @@ export default async function LocaleLayout({
         <link href="/feeds.json" rel="alternate" title="JSON Feed" type="application/feed+json" />
       </head>
       <body>
+        <a className="skip-link" href="#main-content">
+          {messages.header.skipToContent}
+        </a>
         <StructuredData locale={locale} />
         <GeolocationPermissionPrompt />
         <ThemeProvider>
