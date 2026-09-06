@@ -54,12 +54,15 @@ export function SiteHeader({
 
   useEffect(() => {
     function updateActiveSection() {
-      // Blog is a multi-route page link, not an anchor section: it is active on
-      // every blog route, independent of scroll position.
-      const blogPrefix = `${blogPath}/`;
-      if (window.location.pathname === blogPath || window.location.pathname.startsWith(blogPrefix)) {
-        setActiveSection("blog");
-        return;
+      // Home renders #blog as a real anchor section, so scroll-spy decides
+      // there. On blog routes no #blog element exists — keep Blog highlighted
+      // by route instead.
+      if (!document.getElementById("blog")) {
+        const blogPrefix = `${blogPath}/`;
+        if (window.location.pathname === blogPath || window.location.pathname.startsWith(blogPrefix)) {
+          setActiveSection("blog");
+          return;
+        }
       }
 
       const headerBottom = headerRef.current?.getBoundingClientRect().bottom ?? 0;
@@ -357,13 +360,8 @@ export function SiteHeader({
             <nav aria-label={messages.primaryNavigation}>
               <ul className="site-navigation__list">
                 {primaryNavigationIds.map((itemId) => {
-                  const isBlog = itemId === "blog";
                   const href =
-                    isBlog
-                      ? blogPath
-                      : itemId === "home"
-                        ? homePath
-                        : `#${itemId}`;
+                    itemId === "home" ? homePath : `#${itemId}`;
 
                   return (
                     <li key={itemId}>
@@ -373,13 +371,10 @@ export function SiteHeader({
                         }
                         className="site-navigation__link"
                         href={href}
-                        onClick={
-                          isBlog
-                            ? undefined
-                            : (event) =>
-                                itemId === "home"
-                                  ? navigateHome(event)
-                                  : navigateToSection(event, itemId)
+                        onClick={(event) =>
+                          itemId === "home"
+                            ? navigateHome(event)
+                            : navigateToSection(event, itemId)
                         }
                       >
                         {messages.sections[itemId]}

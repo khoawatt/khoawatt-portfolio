@@ -55,6 +55,10 @@ export interface BlogMessages {
   markdownViewLabel: string;
   markdownCopiedLabel: string;
   markdownCopyErrorLabel: string;
+  previewEyebrow: string;
+  previewTitle: string;
+  previewIntro: string;
+  previewSeeMore: string;
 }
 
 export interface AdminFaviconMessages {

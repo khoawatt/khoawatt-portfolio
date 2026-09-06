@@ -3,7 +3,6 @@ import type { FooterContentView } from "@/content/footer";
 import type { Locale } from "@/features/i18n/config";
 import type { HeaderMessages } from "@/features/i18n/messages/types";
 import {
-  blogNavigationPath,
   primaryNavigationIds,
 } from "@/features/navigation/config";
 import { getLocalizedPathname } from "@/features/i18n/routing";
@@ -93,12 +92,8 @@ export function FooterSection({
             </h3>
             <ul className="site-footer__links">
               {primaryNavigationIds.map((itemId) => {
-                const isBlog = itemId === "blog";
-                const href = isBlog
-                  ? getLocalizedPathname(blogNavigationPath, locale)
-                  : itemId === "home"
-                    ? rootPath
-                    : `${rootPath}#${itemId}`;
+                const href =
+                  itemId === "home" ? rootPath : `${rootPath}#${itemId}`;
 
                 return (
                   <li key={itemId}>
