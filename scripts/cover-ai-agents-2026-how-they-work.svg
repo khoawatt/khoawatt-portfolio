@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="glow" cx="78%" cy="42%" r="45%">
+      <stop offset="0%" stop-color="#E0B763" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#E0B763" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="goldbar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E0B763"/>
+      <stop offset="100%" stop-color="#C8963E"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="#161513"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <rect x="0" y="0" width="12" height="900" fill="url(#goldbar)"/>
+
+  <!-- brand -->
+  <text x="80" y="110" font-family="DejaVu Sans, sans-serif" font-size="36" font-weight="bold" fill="#E0B763" letter-spacing="3">Khoa Watt</text>
+  <text x="330" y="110" font-family="DejaVu Sans, sans-serif" font-size="28" fill="#A39E93">· khoawatt.com</text>
+
+  <!-- category chip -->
+  <rect x="80" y="160" width="218" height="52" rx="26" fill="#E0B763" fill-opacity="0.16"/>
+  <text x="189" y="195" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="bold" fill="#E0B763" letter-spacing="2" text-anchor="middle">AI AGENTS</text>
+
+  <!-- title -->
+  <text x="80" y="340" font-family="DejaVu Sans, sans-serif" font-size="118" font-weight="bold" fill="#F5F1EA">AI Agents</text>
+  <text x="80" y="460" font-family="DejaVu Sans, sans-serif" font-size="118" font-weight="bold" fill="#F5F1EA">in 2026<tspan fill="#E0B763">.</tspan></text>
+  <text x="82" y="530" font-family="DejaVu Sans, sans-serif" font-size="30" fill="#C9C4B8">What they are · How they work · Why they matter</text>
+
+  <!-- flow strip -->
+  <g font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold">
+    <rect x="80" y="620" width="118" height="56" rx="12" fill="#242220" stroke="#C8963E" stroke-width="2"/>
+    <text x="139" y="656" fill="#E0B763" text-anchor="middle">Goal</text>
+    <text x="212" y="656" fill="#8A867E" font-size="26">→</text>
+    <rect x="244" y="620" width="118" height="56" rx="12" fill="#242220" stroke="#C8963E" stroke-width="2"/>
+    <text x="303" y="656" fill="#E0B763" text-anchor="middle">Plan</text>
+    <text x="376" y="656" fill="#8A867E" font-size="26">→</text>
+    <rect x="408" y="620" width="118" height="56" rx="12" fill="#242220" stroke="#C8963E" stroke-width="2"/>
+    <text x="467" y="656" fill="#E0B763" text-anchor="middle">Tool</text>
+    <text x="540" y="656" fill="#8A867E" font-size="26">→</text>
+    <rect x="572" y="620" width="156" height="56" rx="12" fill="#242220" stroke="#C8963E" stroke-width="2"/>
+    <text x="650" y="656" fill="#E0B763" text-anchor="middle">Observe</text>
+    <text x="742" y="656" fill="#8A867E" font-size="26">→</text>
+    <rect x="774" y="620" width="138" height="56" rx="12" fill="#242220" stroke="#C8963E" stroke-width="2"/>
+    <text x="843" y="656" fill="#E0B763" text-anchor="middle">Decide</text>
+    <text x="926" y="656" fill="#8A867E" font-size="26">→</text>
+    <rect x="958" y="620" width="158" height="56" rx="12" fill="#C8963E"/>
+    <text x="1037" y="656" fill="#161513" text-anchor="middle">Execute</text>
+  </g>
+
+  <!-- hub diagram right side -->
+  <g transform="translate(-50,0)">
+    <circle cx="1330" cy="430" r="150" fill="none" stroke="#C8963E" stroke-width="2" stroke-dasharray="6 8" opacity="0.7"/>
+    <circle cx="1330" cy="430" r="104" fill="#242220" stroke="#E0B763" stroke-width="3"/>
+    <text x="1330" y="422" font-family="DejaVu Sans, sans-serif" font-size="34" font-weight="bold" fill="#F5F1EA" text-anchor="middle">AGENT</text>
+    <text x="1330" y="458" font-family="DejaVu Sans Mono, monospace" font-size="16" fill="#A39E93" text-anchor="middle">plan · act · verify</text>
+
+    <g font-family="DejaVu Sans Mono, monospace" font-size="21" font-weight="bold" text-anchor="middle">
+      <line x1="1330" y1="326" x2="1330" y2="218" stroke="#C8963E" stroke-width="2"/>
+      <circle cx="1330" cy="188" r="44" fill="#242220" stroke="#E0B763" stroke-width="2"/>
+      <text x="1330" y="196" fill="#E0B763">Code</text>
+
+      <line x1="1420" y1="378" x2="1508" y2="326" stroke="#C8963E" stroke-width="2"/>
+      <circle cx="1536" cy="312" r="44" fill="#242220" stroke="#E0B763" stroke-width="2"/>
+      <text x="1536" y="320" fill="#E0B763">Web</text>
+
+      <line x1="1420" y1="482" x2="1508" y2="534" stroke="#C8963E" stroke-width="2"/>
+      <circle cx="1536" cy="548" r="44" fill="#242220" stroke="#E0B763" stroke-width="2"/>
+      <text x="1536" y="556" fill="#E0B763">API</text>
+
+      <line x1="1330" y1="534" x2="1330" y2="642" stroke="#C8963E" stroke-width="2"/>
+      <circle cx="1330" cy="672" r="44" fill="#242220" stroke="#E0B763" stroke-width="2"/>
+      <text x="1330" y="680" fill="#E0B763">DB</text>
+
+      <line x1="1240" y1="482" x2="1152" y2="534" stroke="#C8963E" stroke-width="2"/>
+      <circle cx="1124" cy="548" r="44" fill="#242220" stroke="#E0B763" stroke-width="2"/>
+      <text x="1124" y="556" fill="#E0B763">Files</text>
+
+      <line x1="1240" y1="378" x2="1152" y2="326" stroke="#C8963E" stroke-width="2"/>
+      <circle cx="1124" cy="312" r="44" fill="#242220" stroke="#E0B763" stroke-width="2"/>
+      <text x="1124" y="320" fill="#E0B763">Mem</text>
+    </g>
+  </g>
+
+  <text x="80" y="830" font-family="DejaVu Sans, sans-serif" font-size="24" fill="#A39E93">Autonomous AI agents · agentic AI · khoawatt.com/blog</text>
+</svg>
