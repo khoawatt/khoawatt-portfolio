@@ -29,6 +29,8 @@ export interface SeoMetadataInput {
   description: string;
   /** Logical (unprefixed) pathname of the current route; defaults to "/". */
   pathname?: string;
+  /** Dynamic favicon icons (layout supplies them; page callers omit). */
+  icons?: Metadata["icons"];
   openGraph?: Metadata["openGraph"];
   twitter?: Metadata["twitter"];
   robots?: Metadata["robots"];
@@ -46,6 +48,7 @@ export function getSeoMetadata({
   title,
   description,
   pathname = "/",
+  icons,
   openGraph,
   twitter,
   robots,
@@ -60,6 +63,7 @@ export function getSeoMetadata({
     metadataBase: new URL(getSiteUrl()),
     title,
     description: sanitizedDescription,
+    ...(icons !== undefined ? { icons } : null),
     alternates: {
       canonical: canonicalPath,
       languages: getAlternateLanguages(pathname),
