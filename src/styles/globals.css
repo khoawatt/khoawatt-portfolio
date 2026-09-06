@@ -4817,6 +4817,16 @@ video {
     grid-column: 1 / -1;
     min-height: 20rem;
   }
+
+  /*
+   * Two posts would leave an empty grid cell (large spans the first row,
+   * the single standard card fills half of the second). Render both cards
+   * as equal columns instead.
+   */
+  .blog-preview__grid[data-layout="simple"][data-count="2"] .blog-preview__card {
+    grid-column: auto;
+    min-height: 20rem;
+  }
 }
 
 @media (min-width: 64rem) {
