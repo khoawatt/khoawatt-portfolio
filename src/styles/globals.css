@@ -5583,6 +5583,23 @@ video {
   font-family: inherit;
 }
 
+/* Rendered Mermaid diagrams (client enhancement; same rhythm as code blocks). */
+.blog-article__prose figure.mermaid-diagram {
+  margin: 0;
+  padding: var(--space-4);
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+}
+
+.blog-article__prose figure.mermaid-diagram svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
 .blog-article__prose table {
   width: 100%;
   border-collapse: collapse;

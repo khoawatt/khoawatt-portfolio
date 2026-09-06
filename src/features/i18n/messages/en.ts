@@ -66,6 +66,7 @@ const messages = {
     previewIntro:
       "Recent writing on the web, engineering, and the tools shaping how I build.",
     previewSeeMore: "See more",
+    diagramLabel: "Diagram",
   },
   themeToggle: {
     toggle: "Toggle color theme",

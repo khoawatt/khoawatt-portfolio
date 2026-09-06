@@ -12,6 +12,7 @@ import { getLocalizedPathname } from "@/features/i18n/routing";
 import { MomoQrTrigger } from "@/components/tip/momo-qr-trigger";
 
 import { MarkdownCopyButton } from "./markdown-copy-button";
+import { MermaidDiagrams } from "./mermaid-diagrams";
 import { PostCard } from "./post-card";
 import { TableOfContents } from "./table-of-contents";
 
@@ -174,10 +175,12 @@ export function Article({ locale, messages, post }: Readonly<ArticleProps>) {
           ) : null}
 
           {/* The HTML comes from the server-side Markdown pipeline, which has raw
-              HTML passthrough disabled, so it is safe by construction. */}
-          <div
-            className="blog-article__prose"
-            dangerouslySetInnerHTML={{ __html: post.html }}
+              HTML passthrough disabled, so it is safe by construction.
+              MermaidDiagrams progressively enhances ```mermaid fences into SVG
+              figures; without JS the readable code blocks remain. */}
+          <MermaidDiagrams
+            diagramLabel={messages.diagramLabel}
+            html={post.html}
           />
 
           <footer className="mt-4 flex flex-col items-center gap-3 border-t border-[var(--color-border)] pt-4 text-[var(--color-text-muted)] transition-colors sm:flex-row sm:flex-nowrap sm:items-center sm:gap-4">

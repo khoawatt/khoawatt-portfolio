@@ -66,6 +66,7 @@ const messages = {
     previewIntro:
       "Các bài viết gần đây về web, kỹ thuật và những công cụ định hình cách tôi xây dựng.",
     previewSeeMore: "Xem thêm",
+    diagramLabel: "Sơ đồ",
   },
   themeToggle: {
     toggle: "Chuyển giao diện màu",
