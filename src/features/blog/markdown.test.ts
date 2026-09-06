@@ -99,3 +99,12 @@ test("content without a leading h1 renders unchanged", async () => {
   assert.ok(!html.includes("<h1"));
   assert.ok(html.includes("<h2 id=\"section-one\">"));
 });
+
+test("mermaid fences keep a stable hook for the client diagram enhancer", async () => {
+  const { html } = await renderMarkdown(
+    ["```mermaid", "flowchart LR", "    A --> B", "```"].join("\n"),
+  );
+
+  assert.ok(html.includes("language-mermaid"), "mermaid hook class present");
+  assert.ok(html.includes("flowchart LR"), "diagram source preserved verbatim");
+});

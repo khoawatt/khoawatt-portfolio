@@ -74,3 +74,15 @@ the authed automation calls — the Vercel env entry stays the source of truth.
 - Revalidate answers 401 → wrong secret or wrong environment's secret.
 - Revalidate answers 503 → `BLOG_REVALIDATE_SECRET` not set in that environment.
 - Stale reads in local dev after direct SQL → same remedy (script against the dev URL).
+
+## Diagrams (Mermaid)
+
+- Authoring: fenced ` ```mermaid ` blocks in `content_md` (same as any code fence).
+- Rendering: the server pipeline keeps mermaid source as a plain code block
+  (stable `language-mermaid` hook, unit-tested); the client `MermaidDiagrams`
+  component progressively enhances blocks into SVG figures at runtime.
+- Guarantees: no-JS readers and render failures still see readable source;
+  `securityLevel: "strict"`; follows light/dark `data-theme` (re-renders on flip);
+  `role="img"` + locale `diagramLabel`; static SVG (no motion issues).
+- Cost control: the `mermaid` library is dynamically imported only on pages
+  that actually contain a diagram — other pages ship zero extra JavaScript.

@@ -59,6 +59,7 @@ export interface BlogMessages {
   previewTitle: string;
   previewIntro: string;
   previewSeeMore: string;
+  diagramLabel: string;
 }
 
 export interface AdminFaviconMessages {
