@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { Container } from "@/components/layout/container";
 import { PageShell } from "@/components/layout/page-shell";
+import { BlogPreviewSection } from "@/components/sections/blog/blog-preview-section";
 import { ContactSection } from "@/components/sections/contact/contact-section";
 import { HeroSection } from "@/components/sections/home/hero-section";
 import { ProjectsSection } from "@/components/sections/projects/projects-section";
@@ -25,6 +26,20 @@ import { navigationSectionIds } from "@/features/navigation/config";
 interface LocalePageProps {
   params: Promise<{ locale: string }>;
 }
+
+/**
+ * Sections rendered by dedicated components above. Any future section id
+ * without a component yet falls through to the generic placeholder below.
+ */
+const dedicatedSectionIds: ReadonlySet<string> = new Set([
+  "home",
+  "about",
+  "skills",
+  "projects",
+  "resume",
+  "blog",
+  "contact",
+]);
 
 export async function generateMetadata({
   params,
@@ -61,9 +76,12 @@ export default async function LocalePage({
       ) : (
         <ResumeSection content={await getCmsResume(locale)} />
       )}
+      <BlogPreviewSection locale={locale} messages={messages.blog} />
       <ContactSection content={contact} />
 
-      {navigationSectionIds.slice(6).map((sectionId) => (
+      {navigationSectionIds
+        .filter((sectionId) => !dedicatedSectionIds.has(sectionId))
+        .map((sectionId) => (
         <section
           aria-labelledby={`${sectionId}-anchor-title`}
           className="navigation-anchor navigation-anchor--placeholder"

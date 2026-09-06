@@ -61,6 +61,11 @@ const messages = {
     markdownViewLabel: "Xem .md",
     markdownCopiedLabel: "Đã sao chép",
     markdownCopyErrorLabel: "Sao chép thất bại",
+    previewEyebrow: "Bài viết",
+    previewTitle: "Bài viết mới nhất",
+    previewIntro:
+      "Các bài viết gần đây về web, kỹ thuật và những công cụ định hình cách tôi xây dựng.",
+    previewSeeMore: "Xem thêm",
   },
   themeToggle: {
     toggle: "Chuyển giao diện màu",

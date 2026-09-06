@@ -61,6 +61,11 @@ const messages = {
     markdownViewLabel: "View .md",
     markdownCopiedLabel: "Copied markdown",
     markdownCopyErrorLabel: "Copy failed",
+    previewEyebrow: "Blog",
+    previewTitle: "Latest from the blog",
+    previewIntro:
+      "Recent writing on the web, engineering, and the tools shaping how I build.",
+    previewSeeMore: "See more",
   },
   themeToggle: {
     toggle: "Toggle color theme",
