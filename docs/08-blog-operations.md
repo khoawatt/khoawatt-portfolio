@@ -64,7 +64,9 @@ listing/category/tag/RSS pages stale until the 24h safety net refreshes them.
 Local: keep values in `.env.local` (gitignored, never commit).
 Production: set in the Vercel project environment; **env changes need a
 redeploy to take effect**, so add the secret *before* merging code that
-depends on it.
+depends on it. The operator machine keeps a local copy of the production
+revalidate secret in `.env.production.local` (gitignored) purely for making
+the authed automation calls — the Vercel env entry stays the source of truth.
 
 ## Troubleshooting
 
