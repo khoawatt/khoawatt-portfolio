@@ -40,6 +40,13 @@ If an issue conflicts with an accepted canonical document, stop and report the c
 
 There is a minimal `npm test` runner using Node's built-in `node:test` via `tsx`, covering the contact-delivery feature (`src/features/contact/*.test.ts`). For other areas, verification remains manual/visual smoke checks plus lint/typecheck/build.
 
+### Blog publishing (automated)
+
+- Full runbook: `docs/08-blog-operations.md` (paths, cache model, env table, troubleshooting).
+- Machine posts go through the `cms_upsert_blog_post` RPC (same gate as `/admin`), never hand-written table rows.
+- After machine writes, refresh caches with `BLOG_REVALIDATE_SECRET=... scripts/blog-revalidate.sh <base-url>` (`POST /api/blog/revalidate`, server-only Bearer secret, fail-closed when unset). Secret lives in `.env.local` (gitignored) and Vercel env — names only in `.env.example`; generate with `openssl rand -hex 32`. Vercel env changes need a redeploy to take effect.
+- ChatGPT-drafted content is fetched with `chatgpt-review fetch --url=<conversation-url>` (turns + files to `/tmp`, never posts anything).
+
 ### Build quirk
 
 `npm run build` uses Turbopack, which can fail in sandboxed environments (CSS worker cannot bind an internal port → `Operation not permitted`). If the default build fails this way, run `npm run build -- --webpack` — that path is verified passing.
