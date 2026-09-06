@@ -4603,7 +4603,13 @@ video {
 
 .blog-preview-section {
   padding-block: var(--section-space);
-  background: var(--color-surface-subtle);
+  background:
+    radial-gradient(
+      circle at 10% 28%,
+      var(--color-accent-soft),
+      transparent 26rem
+    ),
+    var(--color-page);
 }
 
 .blog-preview-section__intro {
