@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -8,6 +9,7 @@ import { locales } from "@/features/i18n/config";
 import { getMessages } from "@/features/i18n/messages";
 import { getLocaleFromParams } from "@/features/i18n/server";
 import { getLocalizedPathname } from "@/features/i18n/routing";
+import { getFaviconIcons } from "@/features/site-settings/favicon";
 import {
   getFooterContent,
   getGithubUrl,
@@ -25,6 +27,16 @@ interface LocaleLayoutProps {
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
+}
+
+/**
+ * Dynamic favicon icons for every locale page (single code path — the
+ * Storage-backed `favicon.path` setting). Page-level `generateMetadata`
+ * results merge with this; they do not set `icons`, so these survive.
+ * When no favicon is set yet, no icon links render (no static fallback).
+ */
+export async function generateMetadata(): Promise<Metadata> {
+  return { icons: await getFaviconIcons() };
 }
 
 export default async function LocaleLayout({

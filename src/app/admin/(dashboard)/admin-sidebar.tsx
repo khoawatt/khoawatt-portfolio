@@ -90,6 +90,20 @@ function BlogIcon() {
   );
 }
 
+function SettingsIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" height="18" viewBox="0 0 24 24" width="18">
+      <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.8" />
+      <path
+        d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2-1.2L14.2 3h-4l-.4 2.7a7 7 0 0 0-2 1.2l-2.3-1-2 3.4 2 1.5a7 7 0 0 0 0 2.4l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2 1.2l.4 2.7h4l.4-2.7a7 7 0 0 0 2-1.2l2.3 1 2-3.4-2-1.5c.06-.4.1-.8.1-1.2Z"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+    </svg>
+  );
+}
+
 function TrashIcon() {
   return (
     <svg aria-hidden="true" fill="none" height="18" viewBox="0 0 24 24" width="18">
@@ -106,6 +120,7 @@ const navLinks: Array<{ href: string; label: string; icon: () => ReactNode }> = 
   { href: "/admin/projects", label: "Projects", icon: ProjectsIcon },
   { href: "/admin/resume", label: "Resume", icon: ResumeIcon },
   { href: "/admin/media", label: "Media", icon: MediaIcon },
+  { href: "/admin/settings", label: "Settings", icon: SettingsIcon },
 ];
 
 const blogLinks: Array<{ href: string; label: string; icon: () => ReactNode }> = [

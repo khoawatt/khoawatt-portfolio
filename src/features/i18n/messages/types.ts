@@ -57,6 +57,25 @@ export interface BlogMessages {
   markdownCopyErrorLabel: string;
 }
 
+export interface AdminFaviconMessages {
+  pageTitle: string;
+  cardTitle: string;
+  cardHint: string;
+  currentLabel: string;
+  noFaviconLabel: string;
+  updatedAtLabel: string;
+  neverLabel: string;
+  fileLabel: string;
+  fileHint: string;
+  newPreviewLabel: string;
+  uploadAction: string;
+  uploadingLabel: string;
+  successMessage: string;
+  chooseFileError: string;
+  currentFaviconAlt: string;
+  newFaviconAlt: string;
+}
+
 export interface PortfolioMessages {
   metadata: {
     title: string;
@@ -66,6 +85,7 @@ export interface PortfolioMessages {
   header: HeaderMessages;
   themeToggle: ThemeToggleMessages;
   blog: BlogMessages;
+  adminFavicon: AdminFaviconMessages;
   notFound: {
     eyebrow: string;
     title: string;
