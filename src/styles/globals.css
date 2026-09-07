@@ -4873,6 +4873,13 @@ video {
     grid-column: 2 / span 2;
     grid-row: 1;
     min-height: 0;
+    /*
+     * The cover is absolutely positioned, so without a proportional height
+     * this card collapses to text height and looks flat next to the square
+     * small cards. 16/10 over the 2-column span lands ~1.25x small height,
+     * matching the reference mosaic rhythm.
+     */
+    aspect-ratio: 16 / 10;
   }
 
   .blog-preview__grid[data-layout="mosaic"] .blog-preview__card[data-size="small"] {
