@@ -7,6 +7,16 @@ const themeInitializationScript = `
       ? storedTheme
       : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     document.documentElement.dataset.theme = resolvedTheme;
+    var pageColor = getComputedStyle(document.documentElement).getPropertyValue("--color-page").trim();
+    if (pageColor) {
+      var themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (!themeMeta) {
+        themeMeta = document.createElement("meta");
+        themeMeta.setAttribute("name", "theme-color");
+        document.head.appendChild(themeMeta);
+      }
+      themeMeta.setAttribute("content", pageColor);
+    }
   } catch (error) {
     document.documentElement.dataset.theme = matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"

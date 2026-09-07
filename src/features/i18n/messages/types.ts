@@ -9,6 +9,7 @@ export interface LocaleSwitcherMessages {
 
 export interface HeaderMessages {
   primaryNavigation: string;
+  skipToContent: string;
   homeAction: string;
   openMenu: string;
   closeMenu: string;
