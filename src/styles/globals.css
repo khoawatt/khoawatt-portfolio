@@ -4859,18 +4859,20 @@ video {
 }
 
 @media (min-width: 64rem) {
+  /* Two even halves: large spans columns 1-2, wide spans 3-4, smalls
+     auto-place into 3/4 of row 2. */
   .blog-preview__grid[data-layout="mosaic"] {
-    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .blog-preview__grid[data-layout="mosaic"] .blog-preview__card[data-size="large"] {
-    grid-column: 1;
+    grid-column: 1 / span 2;
     grid-row: 1 / span 2;
     min-height: 30rem;
   }
 
   .blog-preview__grid[data-layout="mosaic"] .blog-preview__card[data-size="wide"] {
-    grid-column: 2 / span 2;
+    grid-column: 3 / span 2;
     grid-row: 1;
     min-height: 0;
     /*
